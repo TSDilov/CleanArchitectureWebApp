@@ -131,5 +131,8 @@
       }
     }
   },
-  "defaultProject": "CleanArchitectureWebApp.WebUI"
+  "defaultProject": "CleanArchitectureWebApp.WebUI",
+  "cli": {
+    "analytics": "c30b96fd-9cee-40a3-8c91-b879195a28d8"
+  }
 }
