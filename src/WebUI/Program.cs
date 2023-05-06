@@ -1,6 +1,7 @@
+using System.Diagnostics;
 using CleanArchitectureWebApp.Infrastructure.Persistence;
 
-internal class Program
+public class Program
 {
     private static async Task Main(string[] args)
     {

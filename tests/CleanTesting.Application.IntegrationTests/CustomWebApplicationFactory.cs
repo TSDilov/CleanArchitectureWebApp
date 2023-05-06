@@ -5,7 +5,6 @@ using Microsoft.AspNetCore.Mvc.Testing;
 using Microsoft.EntityFrameworkCore;
 using Microsoft.Extensions.Configuration;
 using Microsoft.Extensions.DependencyInjection;
-using Microsoft.VisualStudio.TestPlatform.TestHost;
 using Moq;
 
 namespace CleanTesting.Application.IntegrationTests;
@@ -22,7 +21,6 @@ internal class CustomWebApplicationFactory : WebApplicationFactory<Program>
                 .AddJsonFile("appsettings.json")
                 .AddEnvironmentVariables()
                 .Build();
-
             configurationBuilder.AddConfiguration(integrationConfig);
         });
 
@@ -32,7 +30,6 @@ internal class CustomWebApplicationFactory : WebApplicationFactory<Program>
                 .Remove<ICurrentUserService>()
                 .AddTransient(provider => Mock.Of<ICurrentUserService>(s =>
                     s.UserId == GetCurrentUserId()));
-
             services
                 .Remove<DbContextOptions<ApplicationDbContext>>()
                 .AddDbContext<ApplicationDbContext>((sp, options) =>
