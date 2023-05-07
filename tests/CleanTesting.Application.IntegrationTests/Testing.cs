@@ -31,6 +31,17 @@ public class Testing
         }).GetAwaiter().GetResult();
     }
 
+    public static async Task<TEntity?> FindAsync<TEntity>(params object[] keyValues)
+        where TEntity : class
+    {
+        using var scope = _scopeFactory.CreateScope();
+
+        var context = scope.ServiceProvider.GetRequiredService<ApplicationDbContext>();
+
+        return await context.FindAsync<TEntity>(keyValues);
+    }
+
+
     public static async Task AddAsync<TEntity>(TEntity entity)
         where TEntity : class
     {
